@@ -11,4 +11,7 @@ main = mainWith solutionFunc
           case args of
             [inputFile] -> solveProblem solutionFunc inputFile
             _ -> putStrLn "error: pass an input file"
-        solutionFunc = Day1.solutionFunc
+        solutionFunc = (
+          --Day1.solution1a
+          Day1.solution1b
+          )
