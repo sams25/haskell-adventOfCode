@@ -2,12 +2,12 @@ module Main where
 
 import Test.HUnit
 import qualified System.Exit as Exit
-import qualified Day1 
+import qualified Day1
 import qualified Day2
 
 test1a = TestCase (
-  assertEqual 
-  "Day 1a test" 
+  assertEqual
+  "Day 1a test"
   "142" (
     Day1.solutionA
 
@@ -19,8 +19,8 @@ test1a = TestCase (
   )
 
 test1b = TestCase (
-  assertEqual 
-  "Day 1b test" 
+  assertEqual
+  "Day 1b test"
   "281" (
     Day1.solutionB
 
@@ -35,8 +35,8 @@ test1b = TestCase (
   )
 
 test2a = TestCase (
-  assertEqual 
-  "Day 2a test" 
+  assertEqual
+  "Day 2a test"
   "8" (
     Day2.solutionA
 
@@ -49,8 +49,8 @@ test2a = TestCase (
   )
 
 test2b = TestCase (
-  assertEqual 
-  "Day 2b test" 
+  assertEqual
+  "Day 2b test"
   "2286" (
     Day2.solutionB
 
@@ -61,14 +61,14 @@ test2b = TestCase (
     \Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
   )
   )
- 
-tests :: Test
-tests = TestList [
-      TestLabel "test1a" test1a, TestLabel "test1b" test1b 
+
+allTests :: Test
+allTests = TestList [
+      TestLabel "test1a" test1a, TestLabel "test1b" test1b
     , TestLabel "test2a" test2a, TestLabel "test2b" test2b
   ]
 
 main :: IO ()
 main = do
-    Counts _ _ errs fails <- runTestTT tests
+    Counts _ _ errs fails <- runTestTT allTests
     if errs > 0 || fails > 0 then Exit.exitFailure else Exit.exitSuccess

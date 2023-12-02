@@ -13,6 +13,6 @@ main = mainWith solutionFunc
             [inputFile] -> solveProblem solutionFunc inputFile
             _ -> putStrLn "error: pass an input file"
         solutionFunc = (
-          Day2.solutionA
-          --Day1.solutionB
+          --Day2.solutionA
+          Day2.solutionB
           )

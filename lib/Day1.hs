@@ -9,11 +9,11 @@ import Data.Char (isDigit, digitToInt)
 import Data.List (isPrefixOf)
 
 solution :: (String -> Int) -> (String -> Int) -> String -> String
-solution firstDigit lastDigit input = 
+solution firstDigit lastDigit input =
 
   show (sum calibrationValues)
 
-  where 
+  where
     calibrationValues = map extractCalibrationValue (lines input)
 
     extractCalibrationValue xs =
