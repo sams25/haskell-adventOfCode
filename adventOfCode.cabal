@@ -3,15 +3,13 @@ cabal-version:       2.4
 name:                adventOfCode
 version:             0.1.0.0
 synopsis:            "Advent of Code done in Haskell"
--- description:
--- bug-reports:
--- license:
+description:         "Done for the purposes of learning Haskell. Problems can be found here - https://adventofcode.com"
 -- license-file:        LICENSE
 author:              Anindya Sharma
-maintainer:          anindya.sharma1@gmail.com
+-- maintainer:
 -- copyright:
 -- category:
--- extra-source-files:  CHANGELOG.md
+-- extra-source-files:
 
 library adventOfCodeLib
   exposed-modules:     Day1, Day2
@@ -23,7 +21,7 @@ library adventOfCodeLib
 
 executable adventOfCode
   main-is:             Main.hs
-  -- other-modules:    <Modules included in this executable other than Main>
+  -- other-modules:
   -- other-extensions:
   build-depends:       base ^>=4.13.0.0, adventOfCodeLib
   hs-source-dirs:      app
