@@ -18,7 +18,7 @@ solutionA input =
 solutionB input =
   let
     parsedLines = map parseLine (lines input)
-    powers = [ (r (snd x)) * (g (snd x)) * (b (snd x)) | x <- parsedLines]
+    powers = [ r (snd x) * g (snd x) * b (snd x) | x <- parsedLines]
   in show (sum powers)
 
 
@@ -60,16 +60,13 @@ maxRGB xs =
 parseLine :: String -> (Int, RGB)
 parseLine line =
   let
-    (start : rest : []) = endBy ": " line
+    [start, rest] = endBy ": " line
     gameNumber = read (dropWhile (not . isDigit) start) :: Int
     pulls = endBy "; " rest
-    colourInfos = map getRGB (map (endBy ", ") pulls)
+    colourInfos = map (getRGB . endBy ", ") pulls
     bestInfo = maxRGB colourInfos
   in (gameNumber, bestInfo)
 
 possible :: RGB -> RGB -> Bool
 possible RGB{ r = rMax, g = gMax, b = bMax } RGB{ r = rCheck, g = gCheck, b = bCheck } =
   rCheck <= rMax && gCheck <= gMax && bCheck <= bMax
-
-
-line = "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue"
