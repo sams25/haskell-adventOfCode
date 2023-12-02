@@ -1,14 +1,15 @@
 module Main where
 
-import Day1
 import Test.HUnit
 import qualified System.Exit as Exit
+import qualified Day1 
+import qualified Day2
 
 test1a = TestCase (
   assertEqual 
-  "Day 1a test passes" 
+  "Day 1a test" 
   "142" (
-    Day1.solution1a
+    Day1.solutionA
 
     "1abc2\n\
     \pqr3stu8vwx\n\
@@ -19,9 +20,9 @@ test1a = TestCase (
 
 test1b = TestCase (
   assertEqual 
-  "Day 1b test passes" 
+  "Day 1b test" 
   "281" (
-    Day1.solution1b
+    Day1.solutionB
 
     "two1nine\n\
     \eightwothree\n\
@@ -32,9 +33,40 @@ test1b = TestCase (
     \7pqrstsixteen"
   )
   )
+
+test2a = TestCase (
+  assertEqual 
+  "Day 2a test" 
+  "8" (
+    Day2.solutionA
+
+    "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green\n\
+    \Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue\n\
+    \Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red\n\
+    \Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red\n\
+    \Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
+  )
+  )
+
+test2b = TestCase (
+  assertEqual 
+  "Day 2b test" 
+  "2286" (
+    Day2.solutionB
+
+    "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green\n\
+    \Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue\n\
+    \Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red\n\
+    \Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red\n\
+    \Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
+  )
+  )
  
 tests :: Test
-tests = TestList [TestLabel "test1a" test1a, TestLabel "test1b" test1b]
+tests = TestList [
+      TestLabel "test1a" test1a, TestLabel "test1b" test1b 
+    , TestLabel "test2a" test2a, TestLabel "test2b" test2b
+  ]
 
 main :: IO ()
 main = do

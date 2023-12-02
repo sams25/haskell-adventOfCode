@@ -1,15 +1,15 @@
 module Day1
   (
-    solution1a,
-    solution1b
+    solutionA,
+    solutionB
   )
   where
 
 import Data.Char (isDigit, digitToInt)
 import Data.List (isPrefixOf)
 
-solution1 :: (String -> Int) -> (String -> Int) -> String -> String
-solution1 firstDigit lastDigit input = 
+solution :: (String -> Int) -> (String -> Int) -> String -> String
+solution firstDigit lastDigit input = 
 
   show (sum calibrationValues)
 
@@ -21,8 +21,8 @@ solution1 firstDigit lastDigit input =
           b = lastDigit xs
       in 10 * a + b
 
-solution1a = solution1 firstDigitVanilla (firstDigitVanilla . reverse)
-solution1b = solution1 (firstDigitWithWords id) (firstDigitWithWords reverse . reverse)
+solutionA = solution firstDigitVanilla (firstDigitVanilla . reverse)
+solutionB = solution (firstDigitWithWords id) (firstDigitWithWords reverse . reverse)
 
 firstDigitVanilla :: String -> Int
 firstDigitVanilla (x:xs) = if isDigit x then digitToInt x else firstDigitVanilla xs

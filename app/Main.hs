@@ -1,5 +1,6 @@
 import System.Environment (getArgs)
 import qualified Day1
+import qualified Day2
 
 solveProblem solutionFunc inputFile = do
   input <- readFile inputFile
@@ -12,6 +13,6 @@ main = mainWith solutionFunc
             [inputFile] -> solveProblem solutionFunc inputFile
             _ -> putStrLn "error: pass an input file"
         solutionFunc = (
-          --Day1.solution1a
-          Day1.solution1b
+          Day2.solutionA
+          --Day1.solutionB
           )
