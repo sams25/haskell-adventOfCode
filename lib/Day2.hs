@@ -56,7 +56,7 @@ maxRGB xs =
   in
     maxRGBInner defaultRGB xs
 
--- Returns a game number, and the maximum number of balls for each colur for that game
+-- Returns a game number, and the maximum number of balls for each colour for that game
 parseLine :: String -> (Int, RGB)
 parseLine line =
   let
