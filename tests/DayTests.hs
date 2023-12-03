@@ -2,28 +2,31 @@ module Main where
 
 import Test.HUnit
 import qualified System.Exit as Exit
-import qualified Day1
-import qualified Day2
-import qualified Day3
+import Data.Map.Internal ((!))
+import AllDays (allSolutions)
 
-test1a = TestCase (
-  assertEqual
-  "Day 1a test"
-  "142" (
-    Day1.solutionA
+-- Template
+--
+--(("Expected", -- N, A
+--
+--  "Input"
+-- ),
+-- ("Expected", -- N, B
+--
+--  "Input"
+-- )
+--),
+
+allTestData =
+  [
+  (("142", -- 1, A
 
     "1abc2\n\
     \pqr3stu8vwx\n\
     \a1b2c3d4e5f\n\
     \treb7uchet"
-  )
-  )
-
-test1b = TestCase (
-  assertEqual
-  "Day 1b test"
-  "281" (
-    Day1.solutionB
+   ),
+   ("281", -- 1, B
 
     "two1nine\n\
     \eightwothree\n\
@@ -32,42 +35,27 @@ test1b = TestCase (
     \4nineeightseven2\n\
     \zoneight234\n\
     \7pqrstsixteen"
-  )
-  )
-
-test2a = TestCase (
-  assertEqual
-  "Day 2a test"
-  "8" (
-    Day2.solutionA
+   )
+  ),
+  (("8", -- 2, A
 
     "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green\n\
     \Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue\n\
     \Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red\n\
     \Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red\n\
     \Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
-  )
-  )
-
-test2b = TestCase (
-  assertEqual
-  "Day 2b test"
-  "2286" (
-    Day2.solutionB
+   ),
+   ("2286", -- 2, B
 
     "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green\n\
     \Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue\n\
     \Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red\n\
     \Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red\n\
     \Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
-  )
-  )
+   )
+  ),
+  (("4361", -- 3, A
 
-test3a = TestCase (
-  assertEqual
-  "Day 3a test"
-  "4361" (
-    Day3.solutionA
     "467..114..\n\
     \...*......\n\
     \..35..633.\n\
@@ -78,14 +66,9 @@ test3a = TestCase (
     \......755.\n\
     \...$.*....\n\
     \.664.598.."
-  )
-  )
+   ),
+   ("467835", -- 3, B
 
-test3b = TestCase (
-  assertEqual
-  "Day 3b test"
-  "467835" (
-    Day3.solutionB
     "467..114..\n\
     \...*......\n\
     \..35..633.\n\
@@ -96,15 +79,22 @@ test3b = TestCase (
     \......755.\n\
     \...$.*....\n\
     \.664.598.."
+   )
   )
-  )
-
-allTests :: Test
-allTests = TestList [
-      TestLabel "test1a" test1a, TestLabel "test1b" test1b
-    , TestLabel "test2a" test2a, TestLabel "test2b" test2b
-    , TestLabel "test3a" test3a, TestLabel "test3b" test3b
   ]
+
+createTestForDay :: Int -> ((String, String), (String, String)) -> Test
+createTestForDay num ((expA, dataA), (expB, dataB)) =
+  let
+    label = "Day " ++ show num
+    (solutionA, solutionB) = allSolutions ! num
+  in
+    TestList [
+      TestCase (assertEqual (label ++ "A") expA (solutionA dataA)),
+      TestCase (assertEqual (label ++ "B") expB (solutionB dataB))
+    ]
+
+allTests = TestList (zipWith createTestForDay [1..] allTestData)
 
 main :: IO ()
 main = do
