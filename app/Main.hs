@@ -8,6 +8,7 @@ solveProblem inputDay =
     -- TODO: Some error handling when the file is not present
     -- (or alternatively, downloading the file from the web)
     input <- readFile ("input/day" ++ show inputDay ++ ".input")
+    putStrLn ("Day " ++ show inputDay ++ ":")
     putStrLn ("Solution A: " ++ solutionA input)
     putStrLn ("Solution B: " ++ solutionB input)
 

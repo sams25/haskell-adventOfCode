@@ -9,17 +9,10 @@ import Data.Char (isDigit, digitToInt)
 import Data.List (isPrefixOf)
 
 solution :: (String -> Int) -> (String -> Int) -> String -> String
-solution firstDigit lastDigit input =
-
-  show (sum calibrationValues)
-
+solution firstDigit lastDigit input = show (sum calibrationValues)
   where
+    extractCalibrationValue line = 10 * firstDigit line + lastDigit line
     calibrationValues = map extractCalibrationValue (lines input)
-
-    extractCalibrationValue xs =
-      let a = firstDigit xs
-          b = lastDigit xs
-      in 10 * a + b
 
 solutionA = solution firstDigitVanilla (firstDigitVanilla . reverse)
 solutionB = solution (firstDigitWithWords id) (firstDigitWithWords reverse . reverse)

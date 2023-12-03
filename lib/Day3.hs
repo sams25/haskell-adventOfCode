@@ -65,11 +65,10 @@ getValidPartNums (parts, syms) =
     [p | (p, rect) <- parts, nearSymbol rect]
 
 getGearRatios :: ([Part], [Symbol]) -> [Int]
-getGearRatios (parts, syms) =
-  let
+getGearRatios (parts, syms) = [g | g <- map gearRatio starLocs, g /= 0]
+  where
     starLocs = [snd s | s <- syms, fst s == '*']
-    -- Returns the true gear ratio for a valid location, and 0 otherwise
-    gearRatio :: Position -> Int
+    -- Returns the gear ratio for a (star) location that is a gear, and 0 otherwise
     gearRatio loc =
       let
         partNumsNearby loc (p, rect) acc@(num, ps) = if aroundRect rect loc then (num + 1, p : ps) else acc
@@ -77,5 +76,3 @@ getGearRatios (parts, syms) =
         secondOfList (x:y:xs) = y
       in
         if numParts == 2 then head partNums * secondOfList partNums else 0
-  in
-    [g | g <- map gearRatio starLocs, g /= 0]

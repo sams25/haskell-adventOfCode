@@ -27,8 +27,8 @@ data RGB = RGB{ r :: Int, g :: Int, b :: Int } deriving (Show)
 defaultRGB :: RGB
 defaultRGB = RGB{ r = 0, g = 0, b = 0 }
 
-addRGB :: RGB -> RGB -> RGB
-RGB{ r = r1, g = g1, b = b1 } `addRGB` RGB{ r = r2, g = g2, b = b2 } =
+(+++) :: RGB -> RGB -> RGB
+RGB{ r = r1, g = g1, b = b1 } +++ RGB{ r = r2, g = g2, b = b2 } =
   RGB{ r = r1 + r2, g = g1 + g2, b = b1 + b2 }
 
 -- Converts ["1 green", "2 red"] to RGB{ r = 2, g = 1, b = 0 }
@@ -43,16 +43,15 @@ getRGB (x:xs) =
       'g' -> defaultRGB{ g = num }
       'b' -> defaultRGB{ b = num }
   in
-    thisRGB `addRGB` getRGB xs
+    thisRGB +++ getRGB xs
 
 -- Finds the maximum of each colour from a list of RGB values
 maxRGB :: [RGB] -> RGB
 maxRGB xs =
   let
     maxRGBInner acc [] = acc
-    maxRGBInner acc (x:xs) =
-      let newAcc = RGB{ r = max (r acc) (r x), g = max (g acc) (g x), b = max (b acc) (b x) }
-      in maxRGBInner newAcc xs
+    maxRGBInner acc (x:xs) = maxRGBInner newAcc xs
+      where newAcc = RGB{ r = max (r acc) (r x), g = max (g acc) (g x), b = max (b acc) (b x) }
   in
     maxRGBInner defaultRGB xs
 
