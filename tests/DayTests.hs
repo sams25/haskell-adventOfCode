@@ -4,6 +4,7 @@ import Test.HUnit
 import qualified System.Exit as Exit
 import qualified Day1
 import qualified Day2
+import qualified Day3
 
 test1a = TestCase (
   assertEqual
@@ -62,10 +63,47 @@ test2b = TestCase (
   )
   )
 
+test3a = TestCase (
+  assertEqual
+  "Day 3a test"
+  "4361" (
+    Day3.solutionA
+    "467..114..\n\
+    \...*......\n\
+    \..35..633.\n\
+    \......#...\n\
+    \617*......\n\
+    \.....+.58.\n\
+    \..592.....\n\
+    \......755.\n\
+    \...$.*....\n\
+    \.664.598.."
+  )
+  )
+
+test3b = TestCase (
+  assertEqual
+  "Day 3b test"
+  "467835" (
+    Day3.solutionB
+    "467..114..\n\
+    \...*......\n\
+    \..35..633.\n\
+    \......#...\n\
+    \617*......\n\
+    \.....+.58.\n\
+    \..592.....\n\
+    \......755.\n\
+    \...$.*....\n\
+    \.664.598.."
+  )
+  )
+
 allTests :: Test
 allTests = TestList [
       TestLabel "test1a" test1a, TestLabel "test1b" test1b
     , TestLabel "test2a" test2a, TestLabel "test2b" test2b
+    , TestLabel "test3a" test3a, TestLabel "test3b" test3b
   ]
 
 main :: IO ()
