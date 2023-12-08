@@ -12,7 +12,7 @@ author:              Anindya Sharma
 -- extra-source-files:
 
 library adventOfCodeLib
-  exposed-modules:     AllDays, Day1, Day2, Day3
+  exposed-modules:     AllDays, Day1, Day2, Day3, Day4
   -- other-modules:
   -- other-extensions:
   build-depends:       base ^>=4.13.0.0, containers, split

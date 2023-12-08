@@ -73,6 +73,5 @@ getGearRatios (parts, syms) = [g | g <- map gearRatio starLocs, g /= 0]
       let
         partNumsNearby loc (p, rect) acc@(num, ps) = if aroundRect rect loc then (num + 1, p : ps) else acc
         (numParts, partNums) = foldr (partNumsNearby loc) (0, []) parts
-        secondOfList (x:y:xs) = y
       in
-        if numParts == 2 then head partNums * secondOfList partNums else 0
+        if numParts == 2 then product partNums else 0
