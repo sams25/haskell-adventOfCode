@@ -189,6 +189,24 @@ allTestData =
     \Distance:  9  40  200"
    )
   )
+  ,
+  (("6440", -- 7, A
+
+    "32T3K 765\n\
+    \T55J5 684\n\
+    \KK677 28\n\
+    \KTJJT 220\n\
+    \QQQJA 483"
+   ),
+   ("5905", -- 7, B
+
+    "32T3K 765\n\
+    \T55J5 684\n\
+    \KK677 28\n\
+    \KTJJT 220\n\
+    \QQQJA 483"
+   )
+  )
   ]
 
 createTestForDay :: Int -> ((String, String), (String, String)) -> Test
