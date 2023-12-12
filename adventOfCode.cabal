@@ -11,25 +11,33 @@ author:              Anindya Sharma
 -- category:
 -- extra-source-files:
 
-library adventOfCodeLib
-  exposed-modules:     AllDays, Day1, Day2, Day3, Day4
+library adventOfCodeUtils
+  exposed-modules:     PiecewiseLinear
   -- other-modules:
   -- other-extensions:
-  build-depends:       base ^>=4.13.0.0, containers, split
-  hs-source-dirs:      lib
+  build-depends:       base ^>=4.13.0.0
+  hs-source-dirs:      utils/
+  default-language:    Haskell2010
+
+library adventOfCodeLib
+  exposed-modules:     AllDays, Day1, Day2, Day3, Day4, Day5
+  -- other-modules:
+  -- other-extensions:
+  build-depends:       base ^>=4.13.0.0, containers, split, adventOfCodeUtils
+  hs-source-dirs:      lib/
   default-language:    Haskell2010
 
 executable adventOfCode
   main-is:             Main.hs
   -- other-modules:
   -- other-extensions:
-  build-depends:       base ^>=4.13.0.0, containers, adventOfCodeLib
-  hs-source-dirs:      app
+  build-depends:       base ^>=4.13.0.0, containers, adventOfCodeLib, adventOfCodeUtils
+  hs-source-dirs:      app/
   default-language:    Haskell2010
 
 test-Suite tests
   type:                exitcode-stdio-1.0
   main-is:             DayTests.hs
   hs-source-dirs:      tests/
-  build-depends:       base ^>=4.13.0.0, adventOfCodeLib, HUnit, containers
+  build-depends:       base ^>=4.13.0.0, HUnit, containers, adventOfCodeLib, adventOfCodeUtils
   default-language:    Haskell2010

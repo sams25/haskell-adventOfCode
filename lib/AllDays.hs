@@ -9,6 +9,7 @@ import qualified Day1
 import qualified Day2
 import qualified Day3
 import qualified Day4
+import qualified Day5
 
 allSolutions :: Map.Map Int (String -> String, String -> String)
 allSolutions = Map.fromList (
@@ -17,4 +18,5 @@ allSolutions = Map.fromList (
     , (Day2.solutionA, Day2.solutionB)
     , (Day3.solutionA, Day3.solutionB)
     , (Day4.solutionA, Day4.solutionB)
+    , (Day5.solutionA, Day5.solutionB)
   ])
