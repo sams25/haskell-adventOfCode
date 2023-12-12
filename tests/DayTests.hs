@@ -177,6 +177,18 @@ allTestData =
     \56 93 4"
    )
   )
+  ,
+  (("288", -- 6, A
+
+    "Time:      7  15   30\n\
+    \Distance:  9  40  200"
+   ),
+   ("71503", -- 6, B
+
+    "Time:      7  15   30\n\
+    \Distance:  9  40  200"
+   )
+  )
   ]
 
 createTestForDay :: Int -> ((String, String), (String, String)) -> Test

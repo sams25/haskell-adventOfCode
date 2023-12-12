@@ -46,7 +46,7 @@ parseSeedRanges input =
     seedRanges = coupleUp seeds
       where
         coupleUp [] = []
-        coupleUp (x:y:xs) = (createIntervalFromRange x y) : coupleUp xs
+        coupleUp (x:y:xs) = createIntervalFromRange x y : coupleUp xs
   in (seedRanges, conversions)
 
 createIntervalFromRange :: Int -> Int -> Interval
