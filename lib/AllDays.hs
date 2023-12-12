@@ -5,15 +5,15 @@ module AllDays
   where
 
 import Data.Map as Map
-import qualified Day1
-import qualified Day2
-import qualified Day3
-import qualified Day4
-import qualified Day5
-import qualified Day6
-import qualified Day7
-import qualified Day8
-import qualified Day9
+import qualified Day01
+import qualified Day02
+import qualified Day03
+import qualified Day04
+import qualified Day05
+import qualified Day06
+import qualified Day07
+import qualified Day08
+import qualified Day09
 import qualified Day10
 import qualified Day11
 import qualified Day12
@@ -34,15 +34,15 @@ import qualified Day25
 allSolutions :: Map.Map Int (String -> String, String -> String)
 allSolutions = Map.fromList (
   zip [1..] [
-      (Day1.solutionA, Day1.solutionB)
-    , (Day2.solutionA, Day2.solutionB)
-    , (Day3.solutionA, Day3.solutionB)
-    , (Day4.solutionA, Day4.solutionB)
-    , (Day5.solutionA, Day5.solutionB)
-    , (Day6.solutionA, Day6.solutionB)
-    , (Day7.solutionA, Day7.solutionB)
-    , (Day8.solutionA, Day8.solutionB)
-    , (Day9.solutionA, Day9.solutionB)
+      (Day01.solutionA, Day01.solutionB)
+    , (Day02.solutionA, Day02.solutionB)
+    , (Day03.solutionA, Day03.solutionB)
+    , (Day04.solutionA, Day04.solutionB)
+    , (Day05.solutionA, Day05.solutionB)
+    , (Day06.solutionA, Day06.solutionB)
+    , (Day07.solutionA, Day07.solutionB)
+    , (Day08.solutionA, Day08.solutionB)
+    , (Day09.solutionA, Day09.solutionB)
     , (Day10.solutionA, Day10.solutionB)
     , (Day11.solutionA, Day11.solutionB)
     , (Day12.solutionA, Day12.solutionB)

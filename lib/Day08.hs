@@ -1,4 +1,4 @@
-module Day7
+module Day08
   (
     solutionA,
     solutionB

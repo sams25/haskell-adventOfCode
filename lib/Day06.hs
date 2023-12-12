@@ -1,4 +1,4 @@
-module Day6
+module Day06
   (
     solutionA,
     solutionB
@@ -39,6 +39,3 @@ criticalRangeOfQuadratic a b c =
 isInt x = x == fromInteger (round x)
 smallestIntAbove x = if isInt x then round x + 1 else ceiling x
 greatestIntBelow x = if isInt x then round x - 1 else floor x
-
-temp = solutionA "Time:      7  15   30\n\
-    \Distance:  9  40  200"
