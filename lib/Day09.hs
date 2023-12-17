@@ -18,12 +18,12 @@ parseInput input = map (map read . words) (lines input)
 nextInRow :: [Int] -> Int
 nextInRow row
   | all (==0) row = 0
-  | otherwise = (last row) + nextInRow (diffsBetween row)
+  | otherwise = last row + nextInRow (diffsBetween row)
 
 previousInRow :: [Int] -> Int
 previousInRow row
   | all (==0) row = 0
-  | otherwise = (head row) - previousInRow (diffsBetween row)
+  | otherwise = head row - previousInRow (diffsBetween row)
 
 diffsBetween :: [Int] -> [Int]
 diffsBetween [_] = []
