@@ -242,6 +242,20 @@ allTestData =
     \XXX = (XXX, XXX)"
    )]
   )
+  ,
+  ([("114", -- 9, A
+
+    "0 3 6 9 12 15\n\
+    \1 3 6 10 15 21\n\
+    \10 13 16 21 30 45"
+   )],
+   [("2", -- 9, B
+
+    "0 3 6 9 12 15\n\
+    \1 3 6 10 15 21\n\
+    \10 13 16 21 30 45"
+   )]
+  )
   ]
 
 createSingleTest :: (String -> String) -> String -> (String, String) -> Test
