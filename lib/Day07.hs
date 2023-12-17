@@ -10,12 +10,6 @@ import Data.Function (on)
 import Data.Map (fromListWith, toList)
 import Data.Char (isDigit)
 
-temp = solutionA "32T3K 765\n\
-  \T55J5 684\n\
-  \KK677 28\n\
-  \KTJJT 220\n\
-  \QQQJA 483"
-
 solution withJoker input =
   let
     unsortedHands = map (parseLine withJoker) (lines input)
@@ -26,7 +20,8 @@ solution withJoker input =
 solutionA = solution False
 solutionB = solution True
 
-data HandType = HighCard | OnePair | TwoPair | Trips | FullHouse | Quads | Pents deriving (Eq, Ord, Show)
+data HandType = HighCard | OnePair | TwoPair | Trips | FullHouse | Quads | Pents
+  deriving (Eq, Ord, Show)
 
 type Card = Int
 data Hand = Hand [Card] HandType deriving (Eq, Show)
@@ -35,12 +30,10 @@ instance Ord Hand where
   compare (Hand c1 t1) (Hand c2 t2) = if t1 == t2 then compare c1 c2 else compare t1 t2
 
 parseLine :: Bool -> String -> (Hand, Int)
-parseLine withJoker line = ((Hand cards (handTypeOf cards)), read bid)
+parseLine withJoker line = (Hand cards (handTypeOf cards), read bid)
   where
     [cardsText, bid] = words line
     cards = map (parseCard withJoker) cardsText
-
-jokerValue = 1
 
 parseCard :: Bool -> Char -> Card
 parseCard withJoker x
@@ -50,6 +43,8 @@ parseCard withJoker x
   | x == 'Q' = 12
   | x == 'K' = 13
   | x == 'A' = 14
+
+jokerValue = 1
 
 sortedFrequencies :: (Ord a) => [a] -> [(a, Int)]
 sortedFrequencies xs = sortBy (flip compare `on` snd) $ toList $ fromListWith (+) (zip xs (repeat 1))

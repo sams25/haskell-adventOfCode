@@ -12,7 +12,7 @@ author:              Anindya Sharma
 -- extra-source-files:
 
 library adventOfCodeUtils
-  exposed-modules:     PiecewiseLinear
+  exposed-modules:     PiecewiseLinear, NumTheory
   -- other-modules:
   -- other-extensions:
   build-depends:       base ^>=4.13.0.0

@@ -7,26 +7,26 @@ import AllDays (allSolutions)
 
 -- Template
 --,
---(("Expected", -- N, A
+--([("Expected", -- N, A
 --
 --  "Input"
--- ),
--- ("Expected", -- N, B
+-- )],
+-- [("Expected", -- N, B
 --
 --  "Input"
--- )
+-- )]
 --)
 
 allTestData =
   [
-  (("142", -- 1, A
+  ([("142", -- 1, A
 
     "1abc2\n\
     \pqr3stu8vwx\n\
     \a1b2c3d4e5f\n\
     \treb7uchet"
-   ),
-   ("281", -- 1, B
+   )],
+   [("281", -- 1, B
 
     "two1nine\n\
     \eightwothree\n\
@@ -35,28 +35,28 @@ allTestData =
     \4nineeightseven2\n\
     \zoneight234\n\
     \7pqrstsixteen"
-   )
+   )]
   )
   ,
-  (("8", -- 2, A
+  ([("8", -- 2, A
 
     "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green\n\
     \Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue\n\
     \Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red\n\
     \Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red\n\
     \Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
-   ),
-   ("2286", -- 2, B
+   )],
+   [("2286", -- 2, B
 
     "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green\n\
     \Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue\n\
     \Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red\n\
     \Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red\n\
     \Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
-   )
+   )]
   )
   ,
-  (("4361", -- 3, A
+  ([("4361", -- 3, A
 
     "467..114..\n\
     \...*......\n\
@@ -68,8 +68,8 @@ allTestData =
     \......755.\n\
     \...$.*....\n\
     \.664.598.."
-   ),
-   ("467835", -- 3, B
+   )],
+   [("467835", -- 3, B
 
     "467..114..\n\
     \...*......\n\
@@ -81,10 +81,10 @@ allTestData =
     \......755.\n\
     \...$.*....\n\
     \.664.598.."
-   )
+   )]
   )
   ,
-  (("13", -- 4, A
+  ([("13", -- 4, A
 
     "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53\n\
     \Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19\n\
@@ -92,8 +92,8 @@ allTestData =
     \Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83\n\
     \Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36\n\
     \Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"
-   ),
-   ("30", -- 4, B
+   )],
+   [("30", -- 4, B
 
     "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53\n\
     \Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19\n\
@@ -101,10 +101,10 @@ allTestData =
     \Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83\n\
     \Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36\n\
     \Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"
-   )
+   )]
   )
   ,
-  (("35", -- 5, A
+  ([("35", -- 5, A
 
     "seeds: 79 14 55 13\n\
     \\n\
@@ -139,8 +139,8 @@ allTestData =
     \humidity-to-location map:\n\
     \60 56 37\n\
     \56 93 4"
-   ),
-   ("46", -- 5, B
+   )],
+   [("46", -- 5, B
 
     "seeds: 79 14 55 13\n\
     \\n\
@@ -175,49 +175,87 @@ allTestData =
     \humidity-to-location map:\n\
     \60 56 37\n\
     \56 93 4"
-   )
+   )]
   )
   ,
-  (("288", -- 6, A
+  ([("288", -- 6, A
 
     "Time:      7  15   30\n\
     \Distance:  9  40  200"
-   ),
-   ("71503", -- 6, B
+   )],
+   [("71503", -- 6, B
 
     "Time:      7  15   30\n\
     \Distance:  9  40  200"
-   )
+   )]
   )
   ,
-  (("6440", -- 7, A
+  ([("6440", -- 7, A
 
     "32T3K 765\n\
     \T55J5 684\n\
     \KK677 28\n\
     \KTJJT 220\n\
     \QQQJA 483"
-   ),
-   ("5905", -- 7, B
+   )],
+   [("5905", -- 7, B
 
     "32T3K 765\n\
     \T55J5 684\n\
     \KK677 28\n\
     \KTJJT 220\n\
     \QQQJA 483"
-   )
+   )]
+  )
+  ,
+  ([("2", -- 8, A
+
+    "RL\n\
+    \\n\
+    \AAA = (BBB, CCC)\n\
+    \BBB = (DDD, EEE)\n\
+    \CCC = (ZZZ, GGG)\n\
+    \DDD = (DDD, DDD)\n\
+    \EEE = (EEE, EEE)\n\
+    \GGG = (GGG, GGG)\n\
+    \ZZZ = (ZZZ, ZZZ)"
+   ),
+   ("6", -- 8, A
+
+    "LLR\n\
+    \\n\
+    \AAA = (BBB, BBB)\n\
+    \BBB = (AAA, ZZZ)\n\
+    \ZZZ = (ZZZ, ZZZ)"
+   )],
+   [("6", -- 8, B
+
+    "LR\n\
+    \\n\
+    \11A = (11B, XXX)\n\
+    \11B = (XXX, 11Z)\n\
+    \11Z = (11B, XXX)\n\
+    \22A = (22B, XXX)\n\
+    \22B = (22C, 22C)\n\
+    \22C = (22Z, 22Z)\n\
+    \22Z = (22B, 22B)\n\
+    \XXX = (XXX, XXX)"
+   )]
   )
   ]
 
-createTestForDay :: Int -> ((String, String), (String, String)) -> Test
-createTestForDay num ((expA, dataA), (expB, dataB)) =
+createSingleTest :: (String -> String) -> String -> (String, String) -> Test
+createSingleTest testFunc label (expected, input) = TestCase (assertEqual label expected (testFunc input))
+
+createTestForDay :: Int -> ([(String, String)], [(String, String)]) -> Test
+createTestForDay num (dataA, dataB) =
   let
     label = "Day " ++ show num
     (solutionA, solutionB) = allSolutions ! num
   in
     TestList [
-      TestCase (assertEqual (label ++ "A") expA (solutionA dataA)),
-      TestCase (assertEqual (label ++ "B") expB (solutionB dataB))
+      TestList $ map (createSingleTest solutionA (label ++ "A")) dataA ,
+      TestList $ map (createSingleTest solutionB (label ++ "B")) dataB
     ]
 
 allTests = TestList (zipWith createTestForDay [1..] allTestData)
